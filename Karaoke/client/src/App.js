@@ -7,9 +7,6 @@ import {Button} from '@mui/material';
 import {IconButton} from '@mui/material';
 import {Menu} from '@mui/icons-material';
 
-import {makeStyles} from "@mui/styles";
-
-
 import Notifications from "./components/Notifications.jsx";
 import Options from "./components/Options.jsx";
 import VideoPlayer from "./components/VideoPlayer.jsx";
@@ -43,8 +40,6 @@ const App = () => {
               </Options>
           </div>
       </Box>
-
-
   );
 }
 export default App;
