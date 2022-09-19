@@ -12,7 +12,7 @@ function Playback() {
     const { user, logout } = useUserAuth();
     const navigate = useNavigate();
     
-    const AUTH_TOKEN = "BQB17Gz8qezYgNZCQeEehB51eWLUnh1FINZB6mxuouyYR0TVYLf_wfxJZ8QmhApOlU8DbHORbEW4jyW5CZVDxcxuJ-8fkp-B-ZioSk8De0uyp8AWXJhK_RU0O_wQzW-wEMbvSICvA3CbRLQIpCUj0ZeTM1RPqG7NNoU1MboTGae7f0JWhDWUKy8zbt_CenhtqRgM25lGaRY1pw";
+    const AUTH_TOKEN = ""; //<------------------------------- PUT SPOTIFY API TOKEN HERE. IF YOU NEED TO GENERATE ONE, USE THIS LINK: https://developer.spotify.com/documentation/web-playback-sdk/quick-start/
     const getOAuthToken = useCallback(callback => callback(AUTH_TOKEN), []);
 
     const MyPlayer = () => {
