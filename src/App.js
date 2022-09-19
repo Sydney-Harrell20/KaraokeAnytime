@@ -1,14 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route, Link, NavLink} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Navbar, Container, Nav} from 'react-bootstrap';
-import About from './components/About';
-import Contact from './components/Contact';
+import { Container } from 'react-bootstrap';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import { UserAuthContextProvider, useUserAuth } from './contexts/AuthContext';
+import { UserAuthContextProvider} from './contexts/AuthContext';
 import Header from './components/Header';
 import ProtectedRoute from "./components/ProtectedRoute"
 import Home from "./components/Home"
@@ -25,7 +22,8 @@ function App() {
                 <UserAuthContextProvider>
                     <Router>
                     <Header></Header>
-                        <Container>                            
+                    <Container>
+                        
                         <Routes>
                             <Route exact path="/home"
                                 element={
@@ -39,6 +37,12 @@ function App() {
                                         <GenreSelect />
                                     </ProtectedRoute>
                                 }></Route>
+                            {/*<Route exact path="/KaraokeRoom"
+                                element={
+                                    <ProtectedRoute>
+                                        <VideoDisplay />
+                                    </ProtectedRoute>
+                                }></Route>*/}
                                 <Route exact path='/Signup' element={<Signup />}></Route>
                                 <Route exact path='/' element={<Login />}></Route>
                             </Routes>
