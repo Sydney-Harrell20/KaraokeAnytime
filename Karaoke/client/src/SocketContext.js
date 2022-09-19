@@ -1,10 +1,10 @@
-import React, { createContext, useState, useRef, useEffect } from "react";
+import React, { createContext, useState, useRef, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
 
-const SocketContext = createContext();
+const SocketContext = createContext(null);
 
-const socket = io('http://localhost:3000');
+const socket = io('http://localhost:5000');
 
 const ContextProvider = ({ children }) => {
     const [stream, setStream] = useState(null);
@@ -27,7 +27,7 @@ const ContextProvider = ({ children }) => {
             });
         socket.on('me', (id) => setMe(id));
         socket.on('calluser', ( {from, name: callerName, signal}) => {
-            setCall({isReceivedCall: true, from, name: callerName, signal })
+            setCall({isReceivedCall: true, from, name: callerName, signal });
         });
     }, []);
     const answerCall = () => {
@@ -36,7 +36,7 @@ const ContextProvider = ({ children }) => {
         const peer = new Peer({initiator:false, trickle: false, stream});
 
         peer.on('signal', (data) => {
-            socket.emit("answercall", {signal: data, to:call.from});
+            socket.emit("answercall", {signal: data, to: call.from });
         });
 
         peer.on('stream', (currentStream) => {
@@ -46,7 +46,7 @@ const ContextProvider = ({ children }) => {
         peer.signal(call.signal);
 
         connectionRef.current = peer;
-    }
+    };
 
     const callUser = (id) => {
         const peer = new Peer({ initiator: true, trickle: false, stream});
@@ -73,7 +73,7 @@ const ContextProvider = ({ children }) => {
         connectionRef.current.destroy();
 
         window.location.reload();
-    }
+    };
 
     return (
         <SocketContext.Provider value={{

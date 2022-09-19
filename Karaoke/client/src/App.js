@@ -13,7 +13,7 @@ import VideoPlayer from "./components/VideoPlayer.jsx";
 
 const App = () => {
     return (
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1 }} align="center">
           <AppBar position="static" style={{background: '#000000'}}>
               <Toolbar>
                   <IconButton
@@ -33,11 +33,11 @@ const App = () => {
                   <Button color="inherit">Login</Button>
               </Toolbar>
           </AppBar>
-          <div align="center">
-              <VideoPlayer />
-              <Options>
+          <div style={{justifyContent: "center"}}>
+              <VideoPlayer style={{justifyContent: "center"}}/>
+             <Options>
                   <Notifications />
-              </Options>
+             </Options>
           </div>
       </Box>
   );

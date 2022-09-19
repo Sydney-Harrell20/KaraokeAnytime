@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Grid, Typography, Paper } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
@@ -25,21 +25,30 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const VideoPlayer = () => {
-    const classes = useStyles();
+
+    // const classes = useStyles();
+
+    const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
     return (
-        <Grid container className={classes.gridContainer}>
-            <Paper className={classes.paper}>
-                <Grid item xs={12} md={6}>
-                    <Typography variant="h5" gutterBottom>Name</Typography>
-                    <video playsInline ref={null} autoPlay className={classes.video} />
-                </Grid>
-            </Paper>
-            <Paper className={classes.paper}>
-                <Grid item xs={12} md={6}>
-                    <Typography variant="h5" gutterBottom>Name</Typography>
-                    <video playsInline ref={null} autoPlay className={classes.video}/>
-                </Grid>
-            </Paper>
+        <Grid container style={{justifyContent: 'center'}}>
+            {
+                stream && (
+                    <Paper style={{justifyContent: 'center'}}>
+                        <Grid item style={{justifyContent: 'top'}} align="center">
+                            <Typography variant="h5" gutterBottom>{name || 'Name'}</Typography>
+                            <video style={{display: "flex", justifyContent: 'center'}} playsInline muted ref={myVideo} autoPlay />
+                        </Grid>
+                    </Paper>
+                )
+            }
+            { callAccepted && !callEnded && (
+                <Paper >
+                    <Grid item xs={12} md={6}>
+                        <Typography variant="h5" gutterBottom>Name</Typography>
+                        <video playsInline ref={userVideo} autoPlay/>
+                    </Grid>
+                </Paper>
+            )}
         </Grid>
     );
 }
