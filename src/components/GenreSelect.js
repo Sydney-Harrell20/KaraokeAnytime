@@ -2,7 +2,7 @@ import React from "react";
 import { useUserAuth } from "../contexts/AuthContext";
 import { Container, Card, Button, Form, Alert } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom"
-
+import Playback from "./SpotifyAPI/Playback"
 
 
 function GenreSelect() {
@@ -19,7 +19,7 @@ function GenreSelect() {
             <Card.Title className="text-center mt-3">Select genres!</Card.Title>
             <Card.Body className="text-center">
                 <Card.Body>
-
+                    <Playback />
                 </Card.Body>
                 <Button className="secondary btn-secondary " onClick={onHome}>Home</Button>
             </Card.Body>
