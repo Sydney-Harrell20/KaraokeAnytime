@@ -26,7 +26,7 @@ const Header = (props) => {
                     <Nav>
                         <NavLink hidden={user} to="/" className="btn btn-secondary">Sign In</NavLink>
 
-                            <Nav.Link hidden={!user}onClick={() => {}}>Play!</Nav.Link>
+                            <Nav.Link hidden={!user}onClick={() => { navigate("/genreSelect")}}>Play!</Nav.Link>
                     </Nav>
                     {/* <Nav>
                         <NavLink hidden={currentUser == null} to="./professorClasses" className= "btn btn-primary">ProfessorClasses</NavLink>
