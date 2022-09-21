@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext , useEffect} from "react";
 import { AppBar } from '@mui/material';
 import { Box } from '@mui/material';
 import { Toolbar } from '@mui/material';
@@ -11,7 +11,11 @@ import Notifications from "./Notifications.jsx";
 import Options from "./Options.jsx";
 import VideoPlayer from "./VideoPlayer.jsx";
 
+import { SocketContext } from '../../SocketContext.js';
 const VideoDisplay = () => {
+
+    
+
     return (
         <Box sx={{ flexGrow: 1 }} align="center">
             <div style={{ justifyContent: "center" }}>

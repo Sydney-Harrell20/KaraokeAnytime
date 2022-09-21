@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import {Grid, Typography, Paper } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
@@ -29,14 +29,15 @@ const VideoPlayer = () => {
     // const classes = useStyles();
 
     const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
+    
     return (
         <Grid container style={{justifyContent: 'center', margin: '5px'}}>
             {
                 stream && (
-                    <Paper style={{justifyContent: 'center'}}>
+                    <Paper style={{justifyContent: 'center' }}>
                         <Grid item style={{justifyContent: 'top'}} align="center">
                             <Typography variant="h5" gutterBottom>{name || 'Name'}</Typography>
-                            <video style={{display: "flex", justifyContent: 'center'}} playsInline muted ref={myVideo} autoPlay />
+                            <video style={{display: "flex", justifyContent: 'center', maxHeight: '500px', maxWidth: "600px" }} playsInline muted ref={myVideo} autoPlay />
                         </Grid>
                     </Paper>
                 )

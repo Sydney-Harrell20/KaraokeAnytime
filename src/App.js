@@ -10,6 +10,7 @@ import Header from './components/Header';
 import ProtectedRoute from "./components/ProtectedRoute"
 import Home from "./components/Home"
 import GenreSelect from "./components/GenreSelect"
+import { ContextProvider } from './SocketContext.js';
 
 function App() {
     
@@ -22,9 +23,12 @@ function App() {
                 <UserAuthContextProvider>
                     <Router>
                     <Header></Header>
+                    
                     <Container>
                         
-                        <Routes>
+                        <h1 className="text-center mt-4 ">Karaoke Anytime!</h1>
+
+                        <Routes className="">
                             <Route exact path="/home"
                                 element={
                                     <ProtectedRoute>
@@ -34,7 +38,9 @@ function App() {
                             <Route exact path="/genreSelect"
                                 element={
                                     <ProtectedRoute>
-                                        <GenreSelect />
+                                        <ContextProvider>
+                                            <GenreSelect />
+                                        </ContextProvider>
                                     </ProtectedRoute>
                                 }></Route>
                             {/*<Route exact path="/KaraokeRoom"

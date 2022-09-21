@@ -9,9 +9,12 @@ import { ContextProvider } from './SocketContext.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     
-        <ContextProvider>
+    <React.StrictMode>
+        
             <App />
-        </ContextProvider>
+        
+        </React.StrictMode>
+    
     
 );
 

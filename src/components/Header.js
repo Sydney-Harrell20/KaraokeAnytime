@@ -15,14 +15,16 @@ const Header = (props) => {
     return (
 
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Container>
+            <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
+                <Container className="text-center">
                     <Navbar.Brand onClick={() => { navigate("/home") }} style={{ cursor: 'pointer' }} >{user && user.email}</Navbar.Brand>
+                    
+                    
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                     </Nav>
-                    
+                    Karaoke Anytime
                     <Nav>
                         <NavLink hidden={user} to="/" className="btn btn-secondary">Sign In</NavLink>
 
