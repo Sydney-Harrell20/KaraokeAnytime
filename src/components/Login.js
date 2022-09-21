@@ -4,13 +4,17 @@ import { BrowserRouter as Router, Routes, Route, Link, Nav, NavLink, useNavigate
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Card, Button, Form, Alert} from 'react-bootstrap';
 import { useUserAuth } from '../contexts/AuthContext'
+import { useEffect } from 'react';
 
 function Login() {
-    const usernameRef = useRef();
+    
+    const [user, setUser] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [username, setUsername] = useState();
     const [error, setError] = useState();
     const [loading, setLoading] = useState();
+
     const { login } = useUserAuth();
     const navigate = useNavigate();
 
@@ -20,14 +24,16 @@ function Login() {
 
             setError("");
             setLoading(true);
-            
+
             await login(email, password);
+    
+            navigate("/home");
             
-            navigate("/")
+
 
         }
-        catch(err){ setError(err.message) };
-
+        catch (err) { setError(err.message) };
+        
         setLoading(false);
     }
 

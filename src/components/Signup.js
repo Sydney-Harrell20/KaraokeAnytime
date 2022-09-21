@@ -3,7 +3,8 @@ import { useState, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Nav, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Card, Button, Form, Alert } from 'react-bootstrap';
-import { useUserAuth } from '../contexts/AuthContext'
+import { useUserAuth } from '../contexts/AuthContext';
+
 
 
 
@@ -24,7 +25,8 @@ function Signup() {
        try {
             setError("");
             setLoading(true);
-            await signup(email, password);
+           await signup(email, password);
+          /* await writeUserData(user.email, username);*/
             navigate("/home");
             /*createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
                 .then((userCredential) => {
@@ -41,7 +43,7 @@ function Signup() {
             
         
         }
-        catch { setError("Failed to Log in.") };
+        catch(err) { setError(err.message) };
        
         setLoading(false);
     }
