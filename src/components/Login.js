@@ -39,8 +39,8 @@ function Login() {
 
     return (
         <Container className="d-flex align-items-center justify-content-center"
-            style={{ minHeight: "70vh" }}        >
-            <Card className="w-50 text-left mt-3">
+            style={{ minHeight: "70vh" }}>
+            <Card className="w-50 mt-3">
                 <Card.Body>
                     <Card.Title className="text-center">Login</Card.Title>
                     {error && <Alert variant="danger">{error}</Alert>}
@@ -56,9 +56,12 @@ function Login() {
                         <Button className="btn primary-btn mt-1" type="submit" disabled={loading}> {loading ? 'Loading' : 'Login'} </Button>
                     </Form>
                 </Card.Body>
+                
                 <div className="text-center">Need an Account?</div>
-                <Card.Link href="./Signup" className="text-center mb-2">Sign up!</Card.Link>
+                <Card.Link href="./Signup" className="text-center">Sign up!</Card.Link>
+                <div></div>
                 <Card.Link href="./ForgotPassword" className="text-center mb-2">Forgot Password?</Card.Link>
+                
                 
             </Card>
         </Container>

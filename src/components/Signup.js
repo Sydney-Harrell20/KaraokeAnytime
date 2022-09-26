@@ -76,7 +76,9 @@ function Signup() {
                         <Button className="btn primary-btn mt-1" type="submit" disabled={loading}> {loading ? 'Loading' : 'Signup'} </Button>
 
                     </Form>
-                </Card.Body>
+
+                    </Card.Body>
+                <Card.Link href="./" className="text-center mb-2">Already have an account?</Card.Link>
             </Card>
         </Container>
     )

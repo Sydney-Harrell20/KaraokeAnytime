@@ -26,7 +26,8 @@ const Header = (props) => {
                     </Nav>
                     Karaoke Anytime
                     <Nav>
-                        <NavLink hidden={user} to="/" className="btn btn-secondary">Sign In</NavLink>
+                            <NavLink hidden={user} to="/" className="btn btn-primary">Sign In</NavLink>
+                            <NavLink hidden={user} to="/signup" className="btn btn-secondary">Sign Up</NavLink>
 
                             <Nav.Link hidden={!user}onClick={() => { navigate("/genreSelect")}}>Play!</Nav.Link>
                     </Nav>
