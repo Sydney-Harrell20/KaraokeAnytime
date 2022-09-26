@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import ForgotPassword from './components/ForgotPassword'
 import { UserAuthContextProvider} from './contexts/AuthContext';
 import Header from './components/Header';
 import ProtectedRoute from "./components/ProtectedRoute"
@@ -51,6 +52,7 @@ function App() {
                                 }></Route>*/}
                                 <Route exact path='/Signup' element={<Signup />}></Route>
                                 <Route exact path='/' element={<Login />}></Route>
+                                <Route exact path='/ForgotPassword' element={<ForgotPassword />}></Route>
                             </Routes>
                         </Container>
                     </Router>

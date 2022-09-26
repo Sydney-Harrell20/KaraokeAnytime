@@ -51,13 +51,13 @@ function Signup() {
     
 
     return (
-        <Container className="d-flex align-items-center justify-content-center"
-            style={{ minHeight: "70vh" }}        >
-            <Card className="w-50 mt-3">
-                <Card.Title className="text-center mt-3">Create an Account</Card.Title>
+        <Container className=" d-flex align-items-center justify-content-center"
+            style={{ minHeight: "70vh", maxWidth: "500px" }}>
+            <Card className="w-75 mt-3" style={{ maxWidth: "500px" }}>            
+                <Card.Title className="text-center mt-3">Create an Account!</Card.Title>
                 <Card.Body className="text-left">
                     {error && <Alert variant="danger">{error}</Alert>}
-                    <Form className="w-100 text-left mt-3" onSubmit={handleSubmit}>
+                    <Form className="text-left mt-3" onSubmit={handleSubmit}>
 
                         <Form.Group id="email">
                             <Form.Label>Email</Form.Label>
