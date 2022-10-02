@@ -12,9 +12,16 @@ import Options from "./Options.jsx";
 import VideoPlayer from "./VideoPlayer.jsx";
 
 import { SocketContext } from '../../SocketContext.js';
+
 const VideoDisplay = () => {
 
-    
+    const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
+        useEffect(() => {
+            if (myVideo.current) {
+                myVideo.current.srcObject = stream;
+                console.log("idk");
+            }
+        }, []);
 
     return (
         <Box sx={{ flexGrow: 1 }} align="center">

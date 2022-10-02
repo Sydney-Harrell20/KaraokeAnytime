@@ -11,6 +11,7 @@ import ProtectedRoute from "./components/ProtectedRoute"
 import Home from "./components/Home"
 import GenreSelect from "./components/GenreSelect"
 import { ContextProvider } from './SocketContext.js';
+import VideoDisplay from "./components/VideoChat/VideoDisplay";
 
 function App() {
     
@@ -38,17 +39,17 @@ function App() {
                             <Route exact path="/genreSelect"
                                 element={
                                     <ProtectedRoute>
+                                        <GenreSelect />
+                                    </ProtectedRoute>
+                                }></Route>
+                            <Route path="/KaraokeRoom/:genre"
+                                element={
+                                    <ProtectedRoute>
                                         <ContextProvider>
-                                            <GenreSelect />
+                                            <VideoDisplay />
                                         </ContextProvider>
                                     </ProtectedRoute>
                                 }></Route>
-                            {/*<Route exact path="/KaraokeRoom"
-                                element={
-                                    <ProtectedRoute>
-                                        <VideoDisplay />
-                                    </ProtectedRoute>
-                                }></Route>*/}
                                 <Route exact path='/Signup' element={<Signup />}></Route>
                                 <Route exact path='/' element={<Login />}></Route>
                             </Routes>
