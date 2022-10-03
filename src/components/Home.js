@@ -10,7 +10,7 @@ function Home() {
     const navigate = useNavigate();
 
    async function  onLogout() {
-        await logout();
+       alert(logout());
        navigate("/");
     }
 

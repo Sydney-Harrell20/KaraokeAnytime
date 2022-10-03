@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link, Nav, useNavigate } from '
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Card, Button, Form, Alert } from 'react-bootstrap';
 import { useUserAuth } from '../contexts/AuthContext';
-
+import writeData from "./FirebaseFunctions/AccountDB";
 
 
 
@@ -24,8 +24,9 @@ function Signup() {
         e.preventDefault()
        try {
             setError("");
-            setLoading(true);
-           await signup(email, password);
+           setLoading(true);
+           writeData(username, email);
+           await signup(email, username, password);
           /* await writeUserData(user.email, username);*/
             navigate("/home");
             /*createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
