@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link, Nav, useNavigate } from '
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Card, Button, Form, Alert } from 'react-bootstrap';
 import { useUserAuth } from '../contexts/AuthContext';
-
+import writeData from "./FirebaseFunctions/AccountDB";
 
 
 
@@ -24,8 +24,9 @@ function Signup() {
         e.preventDefault()
        try {
             setError("");
-            setLoading(true);
-           await signup(email, password);
+           setLoading(true);
+           writeData(username, email);
+           await signup(email, username, password);
           /* await writeUserData(user.email, username);*/
             navigate("/home");
             /*createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
@@ -51,13 +52,13 @@ function Signup() {
     
 
     return (
-        <Container className="d-flex align-items-center justify-content-center"
-            style={{ minHeight: "70vh" }}        >
-            <Card className="w-50 mt-3">
-                <Card.Title className="text-center mt-3">Create an Account</Card.Title>
+        <Container className=" d-flex align-items-center justify-content-center"
+            style={{ minHeight: "70vh", maxWidth: "500px" }}>
+            <Card className="w-75 mt-3" style={{ maxWidth: "500px" }}>            
+                <Card.Title className="text-center mt-3">Create an Account!</Card.Title>
                 <Card.Body className="text-left">
                     {error && <Alert variant="danger">{error}</Alert>}
-                    <Form className="w-100 text-left mt-3" onSubmit={handleSubmit}>
+                    <Form className="text-left mt-3" onSubmit={handleSubmit}>
 
                         <Form.Group id="email">
                             <Form.Label>Email</Form.Label>
@@ -76,7 +77,9 @@ function Signup() {
                         <Button className="btn primary-btn mt-1" type="submit" disabled={loading}> {loading ? 'Loading' : 'Signup'} </Button>
 
                     </Form>
-                </Card.Body>
+
+                    </Card.Body>
+                <Card.Link href="./" className="text-center mb-2">Already have an account?</Card.Link>
             </Card>
         </Container>
     )
