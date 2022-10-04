@@ -10,14 +10,15 @@ import { useUserAuth } from "../contexts/AuthContext"
 
 const Header = (props) => {
     const [error, setError] = useState("")
-    const { user, username } = useUserAuth()
+    const { user } = useUserAuth()
     const navigate = useNavigate();
+    let username = window.sessionStorage.getItem("username")
     return (
 
         <div>
             <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
                 <Container className="text-center">
-                    <Navbar.Brand onClick={() => { navigate("/home") }} style={{ cursor: 'pointer' }} >{ username }</Navbar.Brand>
+                    <Navbar.Brand onClick={() => { navigate("/home") }} style={{ cursor: 'pointer' }} >{ user && username }</Navbar.Brand>
                     
                     
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

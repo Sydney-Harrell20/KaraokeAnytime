@@ -4,7 +4,9 @@ import {
     signInWithEmailAndPassword,
     signOut,
     onAuthStateChanged,
-    sendPasswordResetEmail
+    sendPasswordResetEmail,
+    setPersistence,
+    browserSessionPersistence
 } from "firebase/auth";
 import { auth } from "../Modules/firebaseModule";
 import { getName } from "../components/FirebaseFunctions/AccountDB";
@@ -15,13 +17,20 @@ const userAuthContext = createContext();
 export function UserAuthContextProvider({ children }) {
     const [user, setUser] = useState("");
     const [username, setUsername] = useState("");
+    
+    
     function signup(email, name, password) {
         setUsername(name);
+        sessionStorage.setItem("username", username + "");
         return createUserWithEmailAndPassword(auth, email, password);
     }
     async function login(email, password) {
-        setUsername(await getName(email))
-        return signInWithEmailAndPassword(auth, email, password)
+
+        sessionStorage.setItem("username", await getName(email) + "");
+        setUsername(sessionStorage.getItem("username"))
+        return signInWithEmailAndPassword(auth, email, password);
+            
+        
     }
     function logout() {
         setUsername("")
@@ -33,13 +42,16 @@ export function UserAuthContextProvider({ children }) {
     
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            
-            setUser(currentUser);
-            
+        const unsubscribe =onAuthStateChanged(auth, (currentUser) => {
+          
+                setUser(currentUser);
+          
         })
         return unsubscribe;
+        
     }, []);
+
+    
 
 
 
