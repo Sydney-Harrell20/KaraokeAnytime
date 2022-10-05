@@ -47,7 +47,7 @@ function Genre() {
             <Card.Body className="text-center">
                 
                 
-                <Playback />
+                    <Playback />
                 <img style={{maxWidth: "700px", maxHeight: "400px"}} src={post}/>
                 <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
                     <VideoDisplay style={{ justifyContent: "center" }} />

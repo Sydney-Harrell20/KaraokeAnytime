@@ -13,7 +13,7 @@ const Options = ({ children }) => {
     const [idToCall, setIdToCall] = useState('');
     //setName(window.sessionStorage.getItem("username"));
     return (
-        
+        <Container>
             <Paper elevation={10}>
                 <form noValidate autoComplete="off">
                     <Grid container>
@@ -66,8 +66,8 @@ const Options = ({ children }) => {
                 </form>
                 {children}
             </Paper>
-        
+        </Container>
             )
 }
 
-export default Options
+export default Options;
