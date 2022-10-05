@@ -12,6 +12,8 @@ import ProtectedRoute from "./components/ProtectedRoute"
 import Home from "./components/Home"
 import GenreSelect from "./components/GenreSelect"
 import { ContextProvider } from './SocketContext.js';
+import Genre from "./components/Genre";
+import LoggedRoute from "./components/LoggedRoute"
 
 function App() {
     
@@ -19,8 +21,7 @@ function App() {
     return (
         
             
-            <div className="background-image" >
-                
+        <div className="background-image" >
                 <UserAuthContextProvider>
                     <Router>
                     <Header></Header>
@@ -39,19 +40,30 @@ function App() {
                             <Route exact path="/genreSelect"
                                 element={
                                     <ProtectedRoute>
-                                        <ContextProvider>
-                                            <GenreSelect />
-                                        </ContextProvider>
+                                        <GenreSelect />
                                     </ProtectedRoute>
                                 }></Route>
-                            {/*<Route exact path="/KaraokeRoom"
+                            <Route path="/KaraokeRoom/:genre"
                                 element={
                                     <ProtectedRoute>
-                                        <VideoDisplay />
+                                        
+                                            <Genre />
+                                        
                                     </ProtectedRoute>
-                                }></Route>*/}
-                                <Route exact path='/Signup' element={<Signup />}></Route>
-                                <Route exact path='/' element={<Login />}></Route>
+                                }></Route>
+
+                            <Route exact path='/Signup' element={<Signup />}></Route>
+
+                            <Route path="/"
+                                element={
+                                    
+                                        <LoggedRoute>
+                                        <ContextProvider>
+                                            <Login />
+                                        </ContextProvider>
+                                    </LoggedRoute>
+                                }></Route>
+                                
                                 <Route exact path='/ForgotPassword' element={<ForgotPassword />}></Route>
                             </Routes>
                         </Container>
