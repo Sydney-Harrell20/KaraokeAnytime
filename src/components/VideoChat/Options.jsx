@@ -11,7 +11,7 @@ const Options = ({ children }) => {
     const { user, username } = useUserAuth();
     const {me, callAccepted, name, setName,callEnded, leaveCall, callUser} = useContext(SocketContext);
     const [idToCall, setIdToCall] = useState('');
-    setName(username);
+    //setName(window.sessionStorage.getItem("username"));
     return (
         
             <Paper elevation={10}>
@@ -21,7 +21,7 @@ const Options = ({ children }) => {
                             <Typography gutterBottom variant="h6">
                                 Account Info
                             </Typography>
-                            <TextField label="Name" disabled={true} value={name} onChange={setName(username)} fullWidth />
+                        <TextField label="Name" disabled={true} value={username} fullWidth />
                             <CopyToClipboard text={me}>
                                 <Button
                                     style={{backgroundColor: '#000000'}}

@@ -19,15 +19,15 @@ export function UserAuthContextProvider({ children }) {
     const [username, setUsername] = useState("");
     
     
-    function signup(email, name, password) {
-        setUsername(name);
-        sessionStorage.setItem("username", username + "");
+    async function signup(email, name, password) {
+        sessionStorage.setItem("username", await getName(email) + "");
+        
         return createUserWithEmailAndPassword(auth, email, password);
     }
     async function login(email, password) {
 
         sessionStorage.setItem("username", await getName(email) + "");
-        setUsername(sessionStorage.getItem("username"))
+        
         return signInWithEmailAndPassword(auth, email, password);
             
         
@@ -43,8 +43,9 @@ export function UserAuthContextProvider({ children }) {
 
     useEffect(() => {
         const unsubscribe =onAuthStateChanged(auth, (currentUser) => {
-          
-                setUser(currentUser);
+
+            setUsername(sessionStorage.getItem("username"));
+            setUser(currentUser);
           
         })
         return unsubscribe;

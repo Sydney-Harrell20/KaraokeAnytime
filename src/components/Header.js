@@ -10,9 +10,9 @@ import { useUserAuth } from "../contexts/AuthContext"
 
 const Header = (props) => {
     const [error, setError] = useState("")
-    const { user } = useUserAuth()
+    const { user, username } = useUserAuth()
     const navigate = useNavigate();
-    let username = window.sessionStorage.getItem("username")
+    //let username = window.sessionStorage.getItem("username")
     return (
 
         <div>
