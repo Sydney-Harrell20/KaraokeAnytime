@@ -1,17 +1,19 @@
 import React, {useContext, useState} from "react";
-import { Button, TextField, Grid, Typography, Container, Paper} from '@mui/material';
+import { Button, TextField, Grid, Typography, Container, Paper } from '@mui/material';
+import { useUserAuth } from '../../contexts/AuthContext';
 import {makeStyles} from '@mui/styles';
 import { CopyToClipboard} from "react-copy-to-clipboard/src";
 import {Assignment, Phone, PhoneDisabled, Style} from "@mui/icons-material";
 
 import { SocketContext } from "../../SocketContext.js";
 
-const Options = ({children}) => {
-
-    const {me, callAccepted, name, setName,callEnded, leaveCall, callUser} = useContext(SocketContext);
+const Options = ({ children }) => {
+    const { user, username } = useUserAuth();
+    const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
     const [idToCall, setIdToCall] = useState('');
+    //setName(window.sessionStorage.getItem("username"));
     return (
-        <Container>
+
             <Paper elevation={10}>
                 <form noValidate autoComplete="off">
                     <Grid container>
@@ -19,8 +21,7 @@ const Options = ({children}) => {
                             <Typography gutterBottom variant="h6">
                                 Account Info
                             </Typography>
-                            <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
-                            <CopyToClipboard text={me}>
+                            <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />                            <CopyToClipboard text={me}>
                                 <Button
                                     style={{backgroundColor: '#000000'}}
                                     variant="contained"
@@ -64,8 +65,8 @@ const Options = ({children}) => {
                 </form>
                 {children}
             </Paper>
-        </Container>
+        
             )
 }
 
-export default Options
+export default Options;

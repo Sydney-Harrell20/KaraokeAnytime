@@ -10,14 +10,15 @@ import { useUserAuth } from "../contexts/AuthContext"
 
 const Header = (props) => {
     const [error, setError] = useState("")
-    const { user } = useUserAuth()
+    const { user, username } = useUserAuth()
     const navigate = useNavigate();
+    //let username = window.sessionStorage.getItem("username")
     return (
 
         <div>
             <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
                 <Container className="text-center">
-                    <Navbar.Brand onClick={() => { navigate("/home") }} style={{ cursor: 'pointer' }} >{user && user.email}</Navbar.Brand>
+                    <Navbar.Brand onClick={() => { navigate("/home") }} style={{ cursor: 'pointer' }} >{ user && username }</Navbar.Brand>
                     
                     
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -26,7 +27,8 @@ const Header = (props) => {
                     </Nav>
                     Karaoke Anytime
                     <Nav>
-                        <NavLink hidden={user} to="/" className="btn btn-secondary">Sign In</NavLink>
+                            <NavLink hidden={user} to="/" className="btn btn-primary">Sign In</NavLink>
+                            <NavLink hidden={user} to="/signup" className="btn btn-secondary">Sign Up</NavLink>
 
                             <Nav.Link hidden={!user}onClick={() => { navigate("/genreSelect")}}>Play!</Nav.Link>
                     </Nav>

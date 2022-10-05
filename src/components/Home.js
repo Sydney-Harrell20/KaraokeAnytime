@@ -10,7 +10,7 @@ function Home() {
     const navigate = useNavigate();
 
    async function  onLogout() {
-        await logout();
+       logout();
        navigate("/");
     }
 
@@ -19,7 +19,7 @@ function Home() {
     }
 
     return (<Container className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: "70vh" }}        >
+    style={{ minHeight: "70vh" }}    >
         <Card className="w-50 mt-3">
             <Card.Title className="text-center mt-3">Home</Card.Title>
             <Card.Body className="text-center">

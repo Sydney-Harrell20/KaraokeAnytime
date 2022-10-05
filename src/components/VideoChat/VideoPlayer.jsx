@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from "react";
 import {Grid, Typography, Paper } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-
+import { Container, Card, Button, Form, Alert } from 'react-bootstrap';
 import { SocketContext } from '../../SocketContext.js';
 
 const useStyles = makeStyles((theme) => ({
@@ -31,15 +31,13 @@ const VideoPlayer = () => {
     const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
     
     return (
+        <Container>
         <Grid container style={{justifyContent: 'center', margin: '5px'}}>
             {
                 stream && (
-                    <Paper style={{justifyContent: 'center' }}>
-                        <Grid item style={{justifyContent: 'top'}} align="center">
-                            <Typography variant="h5" gutterBottom>{name || 'Name'}</Typography>
+                    <Card>
                             <video style={{display: "flex", justifyContent: 'center', maxHeight: '500px', maxWidth: "600px" }} playsInline muted ref={myVideo} autoPlay />
-                        </Grid>
-                    </Paper>
+                    </Card>
                 )
             }
             { callAccepted && !callEnded && (
@@ -50,7 +48,8 @@ const VideoPlayer = () => {
                     </Grid>
                 </Paper>
             )}
-        </Grid>
+            </Grid>
+            </Container>
     );
 }
 
