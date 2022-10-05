@@ -15,8 +15,11 @@ import { ContextProvider } from './SocketContext.js';
 import Genre from "./components/Genre";
 import LoggedRoute from "./components/LoggedRoute"
 
+
+
 function App() {
-    
+
+
 
     return (
         

@@ -36,8 +36,8 @@ function GenreSelect() {
         <Card className="w-50 mt-3">
             <Card.Title className="text-center mt-3">Select genres!</Card.Title>
             <Card.Body className="text-center">
-                <Card.Body className="mt-3">
-                    <select name="genres" id="genres" onChange={onOptionChangeHandler}>
+                <Card.Body >
+                    <select className = "mb-4"name="genres" id="genres" onChange={onOptionChangeHandler}>
                         {options.map((option, index) => {
                             return <option key={option["key"]} value={option["key"]}>
                                 {option["display"]}
