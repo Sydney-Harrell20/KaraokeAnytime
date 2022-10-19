@@ -10,11 +10,13 @@ import { SocketContext } from "../../SocketContext.js";
 
 const Options = ({ children }) => {
     const { user, username } = useUserAuth();
-    const {me, callAccepted, name, setName,callEnded, leaveCall, callUser} = useContext(SocketContext);
+
+    const {me, callAccepted, name, setName, callEnded, leaveCall, callUser} = useContext(SocketContext);
     const [idToCall, setIdToCall] = useState('');
 
     setName(window.sessionStorage.getItem("username"));
     return (
+
         <Container className="d-flex align-items-center justify-content-center" >
                <Paper elevation={10}>
                 <form noValidate autoComplete="off">

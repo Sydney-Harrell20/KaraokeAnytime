@@ -36,10 +36,9 @@ const VideoPlayer = () => {
         
             {
                 stream && (
-                    
+
                         <video style={{ display: "flex", justifyContent: 'center', maxHeight: '600px', maxWidth: "700px", height: '60vh', width: '70vw' }} playsInline muted ref={myVideo} autoPlay />
-                        
-                        
+                  
                 )
                 }
                 
