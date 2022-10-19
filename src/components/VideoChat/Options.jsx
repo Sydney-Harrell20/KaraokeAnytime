@@ -9,7 +9,8 @@ import { SocketContext } from "../../SocketContext.js";
 
 const Options = ({ children }) => {
     const { user, username } = useUserAuth();
-    const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
+
+    const {me, callAccepted, name, setName, callEnded, leaveCall, callUser} = useContext(SocketContext);
     const [idToCall, setIdToCall] = useState('');
     //setName(window.sessionStorage.getItem("username"));
     return (
@@ -21,7 +22,8 @@ const Options = ({ children }) => {
                             <Typography gutterBottom variant="h6">
                                 Account Info
                             </Typography>
-                            <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />                            <CopyToClipboard text={me}>
+                        <TextField label="Name" disabled={true} value={username} fullWidth />
+                            <CopyToClipboard text={me}>
                                 <Button
                                     style={{backgroundColor: '#000000'}}
                                     variant="contained"
