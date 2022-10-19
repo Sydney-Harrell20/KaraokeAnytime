@@ -33,7 +33,7 @@ function Playback() {
                 getOAuthToken={getOAuthToken}
                 volume={0.5}>
                 <MyPlayer />
-                <PauseResumeButton/>
+                
                 <SongTitle />
             </WebPlaybackSDK>
             </Card>
