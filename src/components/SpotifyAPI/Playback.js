@@ -18,15 +18,16 @@ function Playback() {
     const MyPlayer = () => {
         const webPlaybackSDKReady = useWebPlaybackSDKReady();
 
-        if (!webPlaybackSDKReady) return <div>Loading...</div>;
+        if (!webPlaybackSDKReady) return <>Loading...</>;
 
-        return <div>Spotify App is ready!</div>;
+        return <>Spotify App is ready!</>;
     };
 
     
     
     
-        return (
+    return (
+        <Card bg="dark" text="white" style={{width:'40vw'}}>
             <WebPlaybackSDK
                 deviceName="My awesome Spotify app"
                 getOAuthToken={getOAuthToken}
@@ -35,6 +36,7 @@ function Playback() {
                 
                 <SongTitle />
             </WebPlaybackSDK>
+            </Card>
         );
     };
 

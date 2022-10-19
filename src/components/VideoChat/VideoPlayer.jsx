@@ -31,25 +31,24 @@ const VideoPlayer = () => {
     const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
     
     return (
-        <Container>
-        <Grid container style={{justifyContent: 'center', margin: '5px'}}>
+        <Container className="d-flex align-items-center justify-content-center" >
+           <Card>
+        
             {
                 stream && (
-                    <Card>
-                            <video style={{display: "flex", justifyContent: 'center', maxHeight: '500px', maxWidth: "600px" }} playsInline muted ref={myVideo} autoPlay />
-                    </Card>
+
+                        <video style={{ display: "flex", justifyContent: 'center', maxHeight: '600px', maxWidth: "700px", height: '60vh', width: '70vw' }} playsInline muted ref={myVideo} autoPlay />
+                  
                 )
-            }
+                }
+                
             { callAccepted && !callEnded && (
-                <Paper >
-                    <Grid item xs={12} md={6}>
-                        <Typography variant="h5" gutterBottom>Name</Typography>
-                        <video playsInline ref={userVideo} autoPlay/>
-                    </Grid>
-                </Paper>
-            )}
-            </Grid>
-            </Container>
+                    
+                    <video style={{ display: "flex", justifyContent: 'center', maxHeight: '600px', maxWidth: "700px", height: '60vh', width: '70vw' }} playsInline ref={userVideo} autoPlay />
+                    
+                )}
+                </Card>
+         </Container>
     );
 }
 

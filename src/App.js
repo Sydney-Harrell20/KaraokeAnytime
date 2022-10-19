@@ -15,8 +15,11 @@ import { ContextProvider } from './SocketContext.js';
 import Genre from "./components/Genre";
 import LoggedRoute from "./components/LoggedRoute"
 
+
+
 function App() {
-    
+
+
 
     return (
         
@@ -26,12 +29,12 @@ function App() {
                     <Router>
                     <Header></Header>
                     
-                    <Container>
+                    <Container >
                         
                         <h1 className="text-center mt-4 ">Karaoke Anytime!</h1>
 
                         <Routes className="">
-                            <Route exact path="/home"
+                            <Route exact path="/"
                                 element={
                                     <ProtectedRoute>
                                         <Home />
@@ -54,7 +57,7 @@ function App() {
 
                             <Route exact path='/Signup' element={<Signup />}></Route>
 
-                            <Route path="/"
+                            <Route path="/login"
                                 element={
                                     
                                         <LoggedRoute>

@@ -22,7 +22,7 @@
     "react-scripts": "5.0.1",
     "react-spotify-web-playback-sdk": "^3.0.1",
     "simple-peer": "^9.11.1",
-    "socket.io": "^4.5.2",
+    "socket.io": "^4.5.3",
     "socket.io-client": "^4.5.2",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"

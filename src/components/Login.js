@@ -27,7 +27,7 @@ function Login() {
 
             await login(email, password);
     
-            navigate("/home");
+            navigate("/");
             
 
 
@@ -40,7 +40,7 @@ function Login() {
     return (
         <Container className="d-flex align-items-center justify-content-center"
             style={{ minHeight: "70vh" }}>
-            <Card className="w-50 mt-3">
+            <Card className="w-50 mt-3" style={{ width: "80vw", height: "30vh", minHeight: '400px', minWidth: '40vh', maxWidth: '500px' }}>
                 <Card.Body>
                     <Card.Title className="text-center">Login</Card.Title>
                     {error && <Alert variant="danger">{error}</Alert>}

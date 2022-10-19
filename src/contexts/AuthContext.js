@@ -21,14 +21,32 @@ export function UserAuthContextProvider({ children }) {
     
     async function signup(email, name, password) {
         sessionStorage.setItem("username", await getName(email) + "");
-        
-        return createUserWithEmailAndPassword(auth, email, password);
+        setPersistence(auth, browserSessionPersistence)
+            .then(() => {
+                
+                return createUserWithEmailAndPassword(auth, email, password);
+            })
+            .catch((error) => {
+                
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            })
+        //return createUserWithEmailAndPassword(auth, email, password);
     }
     async function login(email, password) {
 
         sessionStorage.setItem("username", await getName(email) + "");
-        
-        return signInWithEmailAndPassword(auth, email, password);
+        setPersistence(auth, browserSessionPersistence)
+            .then(() => {
+                
+                return signInWithEmailAndPassword(auth, email, password);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage)
+            })
+       // return signInWithEmailAndPassword(auth, email, password);
             
         
     }

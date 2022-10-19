@@ -17,8 +17,8 @@ const Header = (props) => {
 
         <div>
             <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
-                <Container className="text-center">
-                    <Navbar.Brand onClick={() => { navigate("/home") }} style={{ cursor: 'pointer' }} >{ user && username }</Navbar.Brand>
+                <Container className="text-center " style={{ width: "80vw" }} >
+                    <Navbar.Brand className="me-auto" onClick={() => { navigate("/") }} style={{ cursor: 'pointer' }} >{ user && username }</Navbar.Brand>
                     
                     
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -27,7 +27,7 @@ const Header = (props) => {
                     </Nav>
                     Karaoke Anytime
                     <Nav>
-                            <NavLink hidden={user} to="/" className="btn btn-primary">Sign In</NavLink>
+                            <NavLink hidden={user} to="/login" className="btn btn-primary">Sign In</NavLink>
                             <NavLink hidden={user} to="/signup" className="btn btn-secondary">Sign Up</NavLink>
 
                             <Nav.Link hidden={!user}onClick={() => { navigate("/genreSelect")}}>Play!</Nav.Link>

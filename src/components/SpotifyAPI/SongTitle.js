@@ -1,10 +1,13 @@
 import { usePlaybackState } from "react-spotify-web-playback-sdk";
-
+import { Card } from "react-bootstrap";
+import PauseResumeButton from './PauseResumeButton'
 const SongTitle = () => {
     const playbackState = usePlaybackState();
 
     if (playbackState === null) return null;
 
-    return <p>Current song: {playbackState.track_window.current_track.name}</p>;
+    return <>Current song: {playbackState.track_window.current_track.name}
+        <PauseResumeButton />
+        </>;
 };
 export default SongTitle;
