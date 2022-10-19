@@ -37,7 +37,6 @@ const VideoPlayer = () => {
                 stream && (
                     <Card>
                             <video style={{display: "flex", justifyContent: 'center', maxHeight: '500px', maxWidth: "600px" }} playsInline muted ref={myVideo} autoPlay />
-                        
                     </Card>
                 )
             }

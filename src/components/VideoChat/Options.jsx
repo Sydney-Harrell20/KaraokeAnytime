@@ -9,11 +9,12 @@ import { SocketContext } from "../../SocketContext.js";
 
 const Options = ({ children }) => {
     const { user, username } = useUserAuth();
-    const {me, callAccepted, name, setName,callEnded, leaveCall, callUser} = useContext(SocketContext);
+
+    const {me, callAccepted, name, setName, callEnded, leaveCall, callUser} = useContext(SocketContext);
     const [idToCall, setIdToCall] = useState('');
     //setName(window.sessionStorage.getItem("username"));
     return (
-        
+
             <Paper elevation={10}>
                 <form noValidate autoComplete="off">
                     <Grid container>
@@ -70,4 +71,4 @@ const Options = ({ children }) => {
             )
 }
 
-export default Options
+export default Options;
