@@ -3,7 +3,8 @@ import { Button, TextField, Grid, Typography, Container, Paper } from '@mui/mate
 import { useUserAuth } from '../../contexts/AuthContext';
 import {makeStyles} from '@mui/styles';
 import { CopyToClipboard} from "react-copy-to-clipboard/src";
-import {Assignment, Phone, PhoneDisabled, Style} from "@mui/icons-material";
+import { Assignment, Phone, PhoneDisabled, Style } from "@mui/icons-material";
+import { Card } from "react-bootstrap";
 
 import { SocketContext } from "../../SocketContext.js";
 
@@ -11,10 +12,11 @@ const Options = ({ children }) => {
     const { user, username } = useUserAuth();
     const {me, callAccepted, name, setName,callEnded, leaveCall, callUser} = useContext(SocketContext);
     const [idToCall, setIdToCall] = useState('');
-    //setName(window.sessionStorage.getItem("username"));
+
+    setName(window.sessionStorage.getItem("username"));
     return (
-        <Container>
-            <Paper elevation={10}>
+        <Container className="d-flex align-items-center justify-content-center" >
+               <Paper elevation={10}>
                 <form noValidate autoComplete="off">
                     <Grid container>
                         <Grid item xs={12} md={6}>
@@ -66,6 +68,7 @@ const Options = ({ children }) => {
                 </form>
                 {children}
             </Paper>
+            
         </Container>
             )
 }

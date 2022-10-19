@@ -20,22 +20,19 @@ const VideoDisplay = () => {
         useEffect(() => {
             if (myVideo.current) {
                 myVideo.current.srcObject = stream;
-                console.log("idk");
+                
             }
         }, []);
 
     return (
-        <Container >
-            
+        <Container>
                 
-                <VideoPlayer style={{ justifyContent: "center" }} />
+            <VideoPlayer style={{ margin: '0px', minWidth: "300px", minHeight: "200px", width: '30vw', height: '20vh' }} />
             
-                <Options style={{  margin: '3px' }}>
+                <Options style={{  margin: '0px' }}>
                 <Notifications />
                 </Options>
-           
-            
-        </Container>
+         </Container>
     );
 }
 export default VideoDisplay;

@@ -28,7 +28,7 @@ function Signup() {
            writeData(username, email);
            await signup(email, username, password);
           /* await writeUserData(user.email, username);*/
-            navigate("/home");
+            navigate("/");
             /*createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
                 .then((userCredential) => {
                     // Signed in 

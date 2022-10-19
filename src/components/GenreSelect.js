@@ -16,13 +16,16 @@ function GenreSelect() {
             {"key":"softRock", "display":"Soft Rock"}
     ];
 
+    const { name, callAccepted, joinRoom, me, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
+
     let genre = options[0]["key"];
 
     function onHome() {
-        navigate("/home");
+        navigate("/");
     }
 
     function onKaraoke() {
+       // joinRoom(genre , me);
         navigate("/KaraokeRoom/" + genre);
     }
 
@@ -31,23 +34,20 @@ function GenreSelect() {
         genre = event.target.value;
     }
 
-    return (<Container className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: "70vh" }}        >
-        <Card className="w-50 mt-3">
+    return (<Container className="d-flex align-items-center justify-content-center" style={{ height: "70vh" }}>
+        <Card className="text-center d-flex align-items-center justify-content-center" style={{ minWidth: "300px", minHeight: "200px", width: '30vw', height: '20vh' }}>
             <Card.Title className="text-center mt-3">Select genres!</Card.Title>
             <Card.Body className="text-center">
                 <Card.Body >
                     <select className = "mb-4"name="genres" id="genres" onChange={onOptionChangeHandler}>
                         {options.map((option, index) => {
-                            return <option key={option["key"]} value={option["key"]}>
-                                {option["display"]}
-                            </option>
+                            return <option key={option["key"]} value={option["key"]}> {option["display"]} </option>
                         })}
                     </select>
                     <br />
                 </Card.Body>
                 <Button className="secondary btn-secondary " onClick={onHome}>Home</Button>
-                <Button className="secondary btn-secondary " onClick={onKaraoke}>Join Karaoke Room</Button>
+                <Button className="primary btn-primary " onClick={onKaraoke}>Join Karaoke Room</Button>
             </Card.Body>
         </Card>
     </Container>);

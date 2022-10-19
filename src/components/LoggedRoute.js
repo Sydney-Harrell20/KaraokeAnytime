@@ -6,7 +6,7 @@ const LoggedRoute = ({ children }) => {
     let { user } = useUserAuth();
     console.log(user)
     if (user) {
-        return <Navigate to="/home" />;
+        return <Navigate to="/" />;
     }
     return children;
 }
