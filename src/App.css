@@ -45,3 +45,9 @@
             transform: rotate(360deg);
         }
     }
+#genres{
+border:none;
+padding:12px;
+background-color:lightskyblue;
+border-radius: 15%;
+}
