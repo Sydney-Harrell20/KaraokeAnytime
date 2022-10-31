@@ -1,11 +1,7 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { useUserAuth } from "../contexts/AuthContext";
 import { Container, Card, Button, Form, Alert } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom"
-import Playback from "./SpotifyAPI/Playback"
-import VideoDisplay from "./VideoChat/VideoDisplay"
-import VideoPlayer from "./VideoChat/VideoPlayer"
-import { SocketContext } from '../SocketContext.js';
 
 function GenreSelect() {
     const { user, logout } = useUserAuth();
@@ -15,8 +11,6 @@ function GenreSelect() {
             {"key":"pop", "display":"Pop"},
             {"key":"softRock", "display":"Soft Rock"}
     ];
-
-    const { name, callAccepted, joinRoom, me, myVideo, userVideo, callEnded, stream, call } = useContext(SocketContext);
 
     let genre = options[0]["key"];
 

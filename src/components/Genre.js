@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useUserAuth } from "../contexts/AuthContext";
 import { Container, Card, Button, Form, Alert } from 'react-bootstrap';
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Playback from "./SpotifyAPI/Playback"
 import VideoDisplay from "./VideoChat/VideoDisplay"
-import VideoPlayer from "./VideoChat/VideoPlayer"
 import { SocketContext } from '../SocketContext.js';
 
 
@@ -12,6 +11,7 @@ import { SocketContext } from '../SocketContext.js';
 function Genre() {
     const { user, logout } = useUserAuth();
     const navigate = useNavigate();
+    const { genre } = useParams();
     const [post, setPost] = useState("");
 
 

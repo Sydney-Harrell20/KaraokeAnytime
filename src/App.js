@@ -49,9 +49,9 @@ function App() {
                             <Route path="/KaraokeRoom/:genre"
                                 element={
                                     <ProtectedRoute>
-                                        
+                                        <ContextProvider>
                                             <Genre />
-                                        
+                                        </ContextProvider>
                                     </ProtectedRoute>
                                 }></Route>
 
@@ -61,9 +61,9 @@ function App() {
                                 element={
                                     
                                         <LoggedRoute>
-                                        <ContextProvider>
+                                        
                                             <Login />
-                                        </ContextProvider>
+                                        
                                     </LoggedRoute>
                                 }></Route>
                                 
