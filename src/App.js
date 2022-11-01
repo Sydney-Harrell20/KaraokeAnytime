@@ -43,7 +43,9 @@ function App() {
                             <Route exact path="/genreSelect"
                                 element={
                                     <ProtectedRoute>
-                                        <GenreSelect />
+                                        <ContextProvider>
+                                            <GenreSelect />
+                                        </ContextProvider>
                                     </ProtectedRoute>
                                 }></Route>
                             <Route path="/KaraokeRoom/:genre"
