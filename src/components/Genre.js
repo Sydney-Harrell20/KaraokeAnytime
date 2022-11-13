@@ -4,7 +4,6 @@ import { Container, Card, Button, Form, Alert } from 'react-bootstrap';
 import { useNavigate, useParams } from "react-router-dom"
 import Playback from "./SpotifyAPI/Playback"
 import VideoDisplay from "./VideoChat/VideoDisplay"
-import { SocketContext } from '../SocketContext.js';
 
 
 
@@ -20,11 +19,8 @@ function Genre() {
 
 
     function onHome() {
-        try { leaveCall() } catch (error) { };
         navigate("/");
     }
-
-    const { name, callAccepted,  myVideo, userVideo, leaveCall, stream, call } = useContext(SocketContext);
 
     return (
         <Container className="d-flex align-items-center justify-content-center mt-5" >
@@ -33,7 +29,7 @@ function Genre() {
                 <Button className="secondary btn-secondary " style={{width: '40vw'}} onClick={onHome}>Home</Button>
                 <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
                 <Playback />
-                <VideoDisplay />     
+                <VideoDisplay genre={genre} />     
             </Card>
         
     </Container>
