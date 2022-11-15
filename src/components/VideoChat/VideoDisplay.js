@@ -59,8 +59,8 @@ const VideoDisplay = (props) => {
                     peerID: payload.callerID,
                     peer,
                 };
-
-                setPeers([...peers, peerObj]);
+                const newPeers = [...peersRef.current];
+                setPeers(newPeers);
             });
 
             socketRef.current.on("receiving returned signal", payload => {
@@ -72,13 +72,14 @@ const VideoDisplay = (props) => {
                 console.log(id)
                 const peerObj = peersRef.current.find(p => p.peerID === id);
                 if (peerObj) {
-                    console.log("destroy")
-                    peerObj.peer.destroy();
+                    if(!peerObj.peer.destroyed)
+                        peerObj.peer.destroy();
                 }
-                const peers = peersRef.current.filter(p => p.peerID !== id);
-                console.log(peers)
-                peersRef.current = peers;
-                setPeers(peers);
+                console.log(peersRef)
+                const newPeers = peersRef.current.filter(p => p.peerID !== id);
+                console.log(newPeers)
+                peersRef.current = newPeers;
+                setPeers(newPeers);
             });
         })
     }, []);
