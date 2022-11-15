@@ -19,7 +19,7 @@ function Genre() {
 
 
     function onHome() {
-        navigate("/");
+        window.location.reload();
     }
 
     return (
