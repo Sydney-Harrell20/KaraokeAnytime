@@ -47,6 +47,7 @@ io.on('connection', socket => {
     });
 
     socket.on("returning signal", payload => {
+        console.log("signal hit server, going to joiner.")
         io.to(payload.callerID).emit('receiving returned signal', { signal: payload.signal, id: socket.id });
     });
 
