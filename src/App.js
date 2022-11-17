@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
@@ -11,7 +11,6 @@ import Header from './components/Header';
 import ProtectedRoute from "./components/ProtectedRoute"
 import Home from "./components/Home"
 import GenreSelect from "./components/GenreSelect"
-import { ContextProvider } from './SocketContext.js';
 import Genre from "./components/Genre";
 import LoggedRoute from "./components/LoggedRoute"
 
@@ -19,7 +18,7 @@ import LoggedRoute from "./components/LoggedRoute"
 
 function App() {
 
-
+    
 
     return (
         
@@ -43,15 +42,13 @@ function App() {
                             <Route exact path="/genreSelect"
                                 element={
                                     <ProtectedRoute>
-                                        <GenreSelect />
+                                            <GenreSelect />
                                     </ProtectedRoute>
                                 }></Route>
                             <Route path="/KaraokeRoom/:genre"
                                 element={
                                     <ProtectedRoute>
-                                        
                                             <Genre />
-                                        
                                     </ProtectedRoute>
                                 }></Route>
 
@@ -61,10 +58,10 @@ function App() {
                                 element={
                                     
                                         <LoggedRoute>
-                                        <ContextProvider>
+                                        
                                             <Login />
-                                        </ContextProvider>
-                                    </LoggedRoute>
+                                        
+                                        </LoggedRoute>
                                 }></Route>
                                 
                                 <Route exact path='/ForgotPassword' element={<ForgotPassword />}></Route>
